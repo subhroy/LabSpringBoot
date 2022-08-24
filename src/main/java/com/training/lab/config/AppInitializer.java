@@ -35,7 +35,7 @@ public class AppInitializer implements CommandLineRunner {
     emp1 = new Employee();
     emp1.setName("Ram Kaushik");
     emp1.setLocation("Bengaluru");
-    emp1.setDept("Functions");
+    emp1.setDept("FUNCTIONS");
 
     employees.add(emp1);
 
