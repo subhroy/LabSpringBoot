@@ -10,6 +10,7 @@ import com.training.lab.exception.RecordNotUpdatedException;
 import com.training.lab.service.EmployeeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +21,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/employee")
 @Tag(name = "Employee", description = "Employee Service APIs")
+@Slf4j
 public class EmployeeController {
 
   @Autowired private EmployeeService employeeService;
@@ -36,7 +38,6 @@ public class EmployeeController {
       response.setMessage("Employee created");
       response.setResponseBody(emp);
       response.setStatusCode(HttpStatus.CREATED);
-
       return ResponseEntity.status(HttpStatus.CREATED).body(response);
     } catch (RecordNotCreatedException e) {
 
@@ -56,7 +57,7 @@ public class EmployeeController {
 
     APISuccessResponse response = new APISuccessResponse();
     List<Employee> emps = this.employeeService.getAllEmployees();
-
+    log.info("List of all employees :: "+emps);
     response.setMessage("Employee found - " + emps.size());
     response.setResponseBody(emps);
     response.setStatusCode(HttpStatus.FOUND);
@@ -81,7 +82,7 @@ public class EmployeeController {
     } catch (RecordNotFoundException e) {
 
       APIErrorResponse response = new APIErrorResponse();
-
+      log.error("Exception Occurred while fetching employee by ID..!!! ");
       response.setMessage("Something went wrong");
       response.setCause(e.getLocalizedMessage());
       response.setHttpStatusCode(HttpStatus.NOT_FOUND);
