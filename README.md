@@ -19,5 +19,6 @@ Spring-fx doesn't work above Spring 2.5.0 onwards. It has compatibility issue. S
 1. https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html
 2. https://howtodoinjava.com/spring-boot2/logging/logging-application-properties/
 3. https://www.baeldung.com/spring-boot-logging
+4. https://www.codingame.com/playgrounds/4497/configuring-logback-with-spring-boot
 
 
