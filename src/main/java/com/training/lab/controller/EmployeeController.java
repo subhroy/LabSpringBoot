@@ -65,6 +65,7 @@ public class EmployeeController {
   }
 
   @GetMapping("/{id}")
+  @Operation(summary = "fetch-employee-by-empId", description = "Fetch an existing employee by Employee Id.")
   public ResponseEntity<?> getById(@PathVariable long id) {
 
     try {
@@ -164,6 +165,7 @@ public class EmployeeController {
   }
 
   @GetMapping("/department/{dept}")
+  @Operation(summary = "fetch-employee-by-dept", description = "Fetch an existing employee by dept.")
   public ResponseEntity<?> getEmployeesByDept(@PathVariable String dept) {
 
     APISuccessResponse response = new APISuccessResponse();
