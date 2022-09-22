@@ -25,8 +25,7 @@ public class EmployeeServiceImpl implements EmployeeService {
   @Override
   public Employee createEmployee(Employee newEmployee) throws RecordNotCreatedException {
     try {
-      Employee emp = this.empRepo.save(newEmployee);
-      return emp;
+      return this.empRepo.save(newEmployee);
     } catch (DataAccessException e) {
       String msg = "Exception: Employee not created. Something went wrong..!!";
       throw new RecordNotCreatedException(msg, e);
@@ -53,8 +52,7 @@ public class EmployeeServiceImpl implements EmployeeService {
   public Employee updateEmployee(Employee modifiedEmployee) throws RecordNotUpdatedException {
     if (this.empRepo.existsById(modifiedEmployee.getId())) {
       try {
-        Employee emp = this.empRepo.save(modifiedEmployee);
-        return emp;
+        return this.empRepo.save(modifiedEmployee);
       } catch (DataAccessException e) {
         String message = "Employee not updated. Check data.";
         throw new RecordNotUpdatedException(message, e);
@@ -90,7 +88,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
   @Override
   public List<Employee> getByDepartment(String dept) {
-    List<Employee> employees = this.empRepo.findEmployeesByDepartment(dept);
-    return employees;
+    return this.empRepo.findEmployeesByDepartment(dept);
   }
 }

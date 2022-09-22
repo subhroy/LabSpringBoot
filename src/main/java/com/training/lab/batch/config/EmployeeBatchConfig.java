@@ -27,8 +27,8 @@ public class EmployeeBatchConfig {
   String HEADERS[] = {"name", "location", "dept"};
 
   /**
-   *  1. Create Job
-   *  2. Create Step
+   *  1. Create Step
+   *  2. Create Job
    **/
   @Bean(name = "emp_job")
   public Job employeeJob(
